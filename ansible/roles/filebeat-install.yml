@@ -1,0 +1,30 @@
+---
+  - name: Download Filebeat and install
+    hosts: webservers
+    become: true
+    tasks:
+
+    - name: Download Filebeat
+      command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-amd64.deb
+
+    - name: Install Filebeat
+      command: sudo dpkg -i filebeat-7.7.0-amd64.deb
+
+    - name: Make Config Directory
+      file:
+        path: /etc/ansible/files
+        state: directory
+
+    - name: copy config file
+      copy:
+        src: /etc/ansible/files/filebeat-config.yml
+        dest: /etc/ansible/files/filebeat-config.yml
+
+    - name: Enable filebeat and setup
+      command: sudo filebeat modules enable system
+
+    - name: filebeat setup
+      command: sudo filebeat -c /etc/ansible/files/filebeat-config.yml setup
+
+    - name: Filebeat E
+      command: sudo service filebeat start
