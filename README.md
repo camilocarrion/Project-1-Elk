@@ -21,12 +21,12 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly redundant, in addition to restricting internet access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box? 
+-What aspect of security do load balancers protect? What is the advantage of a jump box? 
        Redundancy, the load balancer ensures that one work station/server is not over 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file activiy and system logs .
-- _TODO: What does Filebeat watch for? Filebeat collects log data from specific locations on potentially vulnerable machines.
-- _TODO: What does Metricbeat record? Metricbeat focuses on machine stats and relays them to the ELK server.
+-What does Filebeat watch for? Filebeat collects log data from specific locations on potentially vulnerable machines.
+-What does Metricbeat record? Metricbeat focuses on machine stats and relays them to the ELK server.
 
 The configuration details of each machine may be found below.
 
@@ -91,10 +91,10 @@ SSH into the control node and follow the steps below:
 - Update the filebeat config file to include the private IP address of DVWA-VM3 
 - Run the playbook, and navigate to http://52.177.149.147:5601 to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it? The playbooks are elkbook.yml, basic_playbook.yml, and filebeat-install.yml.  The playbooks are located in the roles folder of ansible. 
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-        The "hosts" file in /etc/ansible dictates the groups for playbook implementation.  The elkservers group chooses the machines to install ELK servers while "webservers" decides the
-- _Which URL do you navigate to in order to check that the ELK server is running? http://52.177.149.147:5601
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+-Which file is the playbook? Where do you copy it? The playbooks are elkbook.yml, basic_playbook.yml, and filebeat-install.yml.  The playbooks are located in the roles folder of ansible. 
+-Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+        The "hosts" file in /etc/ansible dictates the groups for playbook implementation.  The elkservers group chooses the machines to install ELK servers while "webservers" decides the
+-Which URL do you navigate to in order to check that the ELK server is running? http://52.177.149.147:5601
+
+
